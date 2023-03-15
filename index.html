@@ -17,14 +17,27 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <div id="app">
-        
-        <ul class="todo-List">
 
-            <li v-for="(element, index) in todoList" :style="[element.done ? {'textDecoration': 'line-through'} : {}]" @click="toggleDone(index)">
-                {{element.text}}
-            </li>
+        <div class="container">
 
-        </ul>
+            <h1>ToDo List</h1>
+            
+            <ul class="todo-List">
+    
+                <li v-for="(element, index) in todoList">
+                    <p :style="[element.done ? {'textDecoration': 'line-through'} : {}]" :class="element.done ? 'list-element-false' : 'list-element'" @click="toggleDone(index)">{{element.text}}</p> 
+                    <input type="text" id="modifyInput" class="mod-el" v-if="element.modVar" v-model="element.modText">
+
+                    <div class="icon-wrapper">
+                        <i class="fa-regular fa-circle-xmark delete-li" @click="deleteElement(index)"></i>
+                        <i class="fa-solid fa-pencil modify-icon" :style="[element.modVar ? {'color' : 'yellow'} : {}]" @click="modifyElement(index)"></i>
+                    </div>
+                </li>
+    
+            </ul>
+
+        </div>
+
 
 
     </div>

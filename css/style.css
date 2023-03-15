@@ -3,3 +3,121 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+h1{
+    text-align: center;
+    padding: 1em;
+}
+
+.container{
+    width: 100%; height: 100vh;
+
+    color: white;
+    background: #111216;
+}
+
+.todo-List{
+    padding: 1em 2em;
+    list-style: none;
+}
+
+.todo-List li{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-element-false,
+.list-element{
+    font-size: 1.1em;
+    margin: 20px 0px;
+    cursor: pointer;
+    opacity: .75;
+    border-left:3px solid transparent ;
+
+    transition: all .4s;
+}
+
+.list-element-false:hover,
+.list-element:hover{
+    opacity: 1;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    padding-left: 10px;
+}
+
+.list-element:hover{
+    border-left:3px solid green ;
+}
+
+.list-element-false:hover{
+    border-left:3px solid rgb(204, 3, 0) ;
+}
+
+
+/* Icons */
+.icon-wrapper{
+    
+
+    display: flex;
+    align-items: baseline;
+
+    position: relative;
+
+    width: 50px;
+}
+
+.delete-li{
+    position: absolute;
+    left: 0; bottom: 0;
+
+    color:red;
+   
+    cursor: pointer;
+    z-index: 2;
+
+    font-size: 1.2em;
+    opacity: .8;
+
+    transform: translateX(50%) translateY(50%);
+
+    transition: all .2s;
+}
+
+.delete-li:hover{
+    opacity: 1;
+    font-size: 1.25em;
+}
+
+.modify-icon{
+    position: absolute;
+    right: 0; bottom:2px;
+
+    color:rgb(229, 229, 229);
+    padding-left: .6em;
+    cursor: pointer;
+    z-index: 2;
+
+    font-size: 1.0em;
+    opacity: .8;
+
+    transform: translateX(50%) translateY(50%);
+
+    transition: all .2s;
+}
+
+.modify-icon:hover{
+    opacity: 1;
+    font-size: 1.1em;
+}
+
+.mod-el{
+    position: absolute;
+    background: transparent;
+    color: white;
+
+    width:70%;
+
+    font-size: 1.1em;
+   
+}
