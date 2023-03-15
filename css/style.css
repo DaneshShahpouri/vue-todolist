@@ -22,7 +22,7 @@ h1{
 }
 
 .todo-List li{
-    
+    padding: 0 2em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,8 +57,6 @@ h1{
 
 /* Icons */
 .icon-wrapper{
-    
-
     display: flex;
     align-items: baseline;
 
@@ -141,10 +139,21 @@ h1{
     border-radius: 10px;
 
     background: transparent;
-    border: 1px solid white;
+    border: 1px solid rgb(210, 210, 210);
 
-    color: white;
+    color: rgb(210, 205, 205);
 
     cursor: pointer;
+    transition: all .4s;
+}
 
+.wrapperNewElList button:hover{
+   color: white; 
+   box-shadow: 5px 5px 10px black;
+   border: 1px solid rgb(255, 255, 255);
+}
+
+.wrapperNewElList button:active{
+    background: #000000;
+    box-shadow: 0px 0px 1px black;
 }

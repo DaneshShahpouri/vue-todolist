@@ -40,7 +40,7 @@ createApp({
             modVar: false,
         },
 
-        inputEmpyVar: true,
+        placeholder: 'Inserisci una elemento alla lista',
 
         
     }
@@ -95,17 +95,31 @@ createApp({
             done:false,
             modVar: false,
             };
-            
+
             this.newTodoElement.text = '';
 
-        if(newLi.text == '' || newLi.text == 'Devi Inserire un valore!'){
-            this.newTodoElement.text = 'Devi Inserire un valore!'
+        if(newLi.text == ''){
+            this.placeholder = 'Valore non valido!'
         }else{
             this.todoList.push(newLi)
 
         }
 
-    }
+    },
+
+    focusInputAdd() {
+        //console.log(this.$refs.inputAdd)
+        this.$refs.inputAdd.focus();
+      },
+    
+    focusInput(elementIndex) {
+
+        setTimeout(
+            ()=>{
+                this.$refs.input[elementIndex].focus();
+                //console.log(this.$refs.input[elementIndex])
+
+            }, 100)},
 
   },
 }).mount('#app')

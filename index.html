@@ -26,11 +26,11 @@
     
                 <li v-for="(element, index) in todoList">
                     <p :style="[element.done ? {'textDecoration': 'line-through'} : {}]" :class="element.done ? 'list-element-false' : 'list-element'" @click="toggleDone(index)">{{element.text}}</p> 
-                    <input type="text" id="modifyInput" class="mod-el" v-if="element.modVar" v-model="element.modText">
+                    <input type="text" class="mod-el" v-show="element.modVar" v-model="element.modText" @keyup.enter="modifyElement(index)" ref="input">
 
                     <div class="icon-wrapper">
                         <i class="fa-regular fa-circle-xmark delete-li" @click="deleteElement(index)"></i>
-                        <i class="fa-solid fa-pencil modify-icon" :style="[element.modVar ? {'color' : 'yellow'} : {}]" @click="modifyElement(index)"></i>
+                        <i class="fa-solid fa-pencil modify-icon" :style="[element.modVar ? {'color' : 'yellow'} : {}]" @click="modifyElement(index); focusInput(index)"></i>
                     </div>
                 </li>
     
@@ -38,8 +38,8 @@
 
 
             <div class="wrapperNewElList">
-                <input type="text" id="newElList" v-model="newTodoElement.text" @keyup.enter="addNewElList()">
-                <button @click="addNewElList()">Aggiungi</button>
+                <input type="text" id="newElList" v-model="newTodoElement.text" @keyup.enter="addNewElList()" ref="inputAdd" :placeholder="placeholder" v-model="placeholder">
+                <button @click="addNewElList(); focusInputAdd()">Aggiungi</button>
             </div>
 
         </div>
