@@ -10,26 +10,31 @@ createApp({
                 modText: '',
                 done: false,
                 modVar: false,
+                modArr: []
             },{
                 text: 'Ricordati di non fare una lista di un solo elemento',
                 modText: '',
                 done: false,
                 modVar: false,
+                modArr: []
             },{
                 text: 'Ricordati che le liste sono un insieme di elementi',
                 modText: '',
                 done: false,
                 modVar: false,
+                modArr: []
             },{
                 text: 'Ricordati che se la lista ha un solo elemento non può essere chiamata lista',
                 modText: '',
                 done: false,
                 modVar: false,
+                modArr: []
             },{
                 text: 'Ricordati che la lista, quando è fatta bene, è utile.',
                 modText: '',
                 done: false,
                 modVar: false,
+                modArr: []
             },
         ],
 
@@ -38,6 +43,7 @@ createApp({
             modText: '',
             done:false,
             modVar: false,
+            modArr: []
         },
 
         placeholder: 'Inserisci un elemento alla lista',
@@ -66,17 +72,23 @@ createApp({
     },
 
     modifyElement(elementIndex){
-
+        if(this.todoList[elementIndex].modArr.length == 0){
+            this.todoList[elementIndex].modArr.push(this.todoList[elementIndex].text)
+        }
         
         if(this.todoList[elementIndex].modVar===true){
-
-            this.todoList[elementIndex].text = this.todoList[elementIndex].modText
+            
+            
+            //salva le modifiche in un array
+            this.todoList[elementIndex].modArr.push(this.todoList[elementIndex].modText);
+            
+            this.todoList[elementIndex].text = this.todoList[elementIndex].modText;
             this.todoList[elementIndex].modVar=false;
-
+            
         }else{
-
             let prevText = this.todoList[elementIndex].text;
             //console.log(prevText)
+
     
             this.todoList[elementIndex].modText = prevText
             //console.log(this.todoList[elementIndex].modText)
@@ -121,5 +133,19 @@ createApp({
 
             }, 100)},
 
+
+    deleteLastModify(elementIndex){
+    
+    let contatore = this.todoList[elementIndex].modArr.length;
+    //console.log(this.todoList[elementIndex].modArr)
+
+    if(contatore>1){
+        this.todoList[elementIndex].modArr.pop()
+        this.todoList[elementIndex].text = this.todoList[elementIndex].modArr[this.todoList[elementIndex].modArr.length-1]
+        //console.log(this.todoList[elementIndex].text)
+        //console.log(this.todoList[elementIndex].modArr)
+        
+    }
+    },
   },
 }).mount('#app')

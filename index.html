@@ -29,8 +29,19 @@
                     <input type="text" class="mod-el" v-show="element.modVar" v-model="element.modText" @keyup.enter="modifyElement(index)" ref="input">
 
                     <div class="icon-wrapper">
-                        <i class="fa-regular fa-circle-xmark delete-li" @click="deleteElement(index)"></i>
-                        <i class="fa-solid fa-pencil modify-icon" :style="[element.modVar ? {'color' : 'yellow'} : {}]" @click="modifyElement(index); focusInput(index)"></i>
+
+                        <div class="wrapper">
+                            <i class="fa-solid fa-reply reply-icon" v-show="this.todoList[index].modArr.length>1" @click="deleteLastModify(index)"></i>
+                        </div>
+
+                        <div class="wrapper">
+                            <i class="fa-regular fa-circle-xmark delete-li" @click="deleteElement(index)"></i>
+                        </div>
+
+                        <div class="wrapper">
+                            <i class="fa-solid fa-pencil modify-icon" :style="[element.modVar ? {'color' : 'yellow'} : {}]" @click="modifyElement(index); focusInput(index)"></i>
+                        </div>
+
                     </div>
                 </li>
     

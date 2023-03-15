@@ -64,55 +64,52 @@ li:nth-child(even){
 /* Icons */
 .icon-wrapper{
     display: flex;
-    align-items: baseline;
-
-    position: relative;
-
-    width: 50px;
+    align-items: baseline;    
 }
 
-.delete-li{
+.wrapper{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 128, 0, 0);
+}
+
+.modify-icon,
+.delete-li,
+.reply-icon{
     position: absolute;
     left: 0; bottom: 0;
 
-    color:red;
+    transform: translateX(20%) translateY(-10%);
    
     cursor: pointer;
     z-index: 2;
 
     font-size: 1.2em;
-    opacity: .8;
-
-    transform: translateX(50%) translateY(50%);
+    opacity: .5;
 
     transition: all .2s;
 }
 
-.delete-li:hover{
-    opacity: 1;
-    font-size: 1.25em;
+.reply-icon{
+    color:rgb(255, 255, 255);
 }
+
+.modify-icon:hover,
+.delete-li:hover,
+.reply-icon:hover{
+    opacity: 1;
+    scale: 1.05;
+}
+
+
+.delete-li{
+    color:red;
+}
+
 
 .modify-icon{
-    position: absolute;
-    right: 0; bottom:2px;
-
-    color:rgb(229, 229, 229);
-    padding-left: .6em;
-    cursor: pointer;
-    z-index: 2;
-
-    font-size: 1.0em;
-    opacity: .8;
-
-    transform: translateX(50%) translateY(50%);
-
-    transition: all .2s;
-}
-
-.modify-icon:hover{
-    opacity: 1;
-    font-size: 1.1em;
+    color:rgb(69, 186, 83);
 }
 
 .mod-el{
@@ -144,12 +141,15 @@ li:nth-child(even){
 
 .wrapperNewElList input{
     width: 60%;
+
+    margin-top: 2em;
     padding:6px;
     font-size: 1.1em;
 }
 
 .wrapperNewElList button{
     padding: 5px 20px;
+    margin-bottom: 1em;
     
     border-radius: 10px;
 
