@@ -26,7 +26,7 @@
     
                 <li v-for="(element, index) in todoList">
                     <p :style="[element.done ? {'textDecoration': 'line-through'} : {}]" :class="element.done ? 'list-element-false' : 'list-element'" @click="toggleDone(index)">{{element.text}}</p> 
-                    <input type="text" class="mod-el" v-show="element.modVar" v-model="element.modText" @keyup.enter="modifyElement(index)" ref="input">
+                    <input type="text" class="mod-el" v-show="element.modVar" v-model="element.modText" @keyup.enter="modifyElement(index)" ref="input" v-on:blur="modifyElement(index)">
 
                     <div class="icon-wrapper">
 
