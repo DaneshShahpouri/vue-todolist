@@ -46,9 +46,7 @@ createApp({
             modArr: []
         },
 
-        placeholder: 'Inserisci un elemento alla lista',
-
-        
+        placeholder: 'Inserisci un elemento alla lista',    
     }
   },
 
@@ -106,6 +104,7 @@ createApp({
             modText: '',
             done:false,
             modVar: false,
+            modArr: [],
             };
 
             this.newTodoElement.text = '';
