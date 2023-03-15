@@ -38,7 +38,7 @@
 
 
             <div class="wrapperNewElList">
-                <input type="text" id="newElList" v-model="newTodoElement.text">
+                <input type="text" id="newElList" v-model="newTodoElement.text" @keyup.enter="addNewElList()">
                 <button @click="addNewElList()">Aggiungi</button>
             </div>
 
