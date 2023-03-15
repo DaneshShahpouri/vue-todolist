@@ -40,6 +40,8 @@ createApp({
             modVar: false,
         },
 
+        inputEmpyVar: true,
+
         
     }
   },
@@ -85,6 +87,25 @@ createApp({
             
         }        
     },
+
+    addNewElList(){
+        let newLi = {
+            text: this.newTodoElement.text,
+            modText: '',
+            done:false,
+            modVar: false,
+            };
+            
+            this.newTodoElement.text = '';
+
+        if(newLi.text == '' || newLi.text == 'Devi Inserire un valore!'){
+            this.newTodoElement.text = 'Devi Inserire un valore!'
+        }else{
+            this.todoList.push(newLi)
+
+        }
+
+    }
 
   },
 }).mount('#app')
