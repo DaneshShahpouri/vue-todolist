@@ -11,7 +11,7 @@ createApp({
                 done: false,
                 modVar: false,
             },{
-                text: 'Ricordati di non fare una lista da un solo elemento',
+                text: 'Ricordati di non fare una lista di un solo elemento',
                 modText: '',
                 done: false,
                 modVar: false,
@@ -40,7 +40,7 @@ createApp({
             modVar: false,
         },
 
-        placeholder: 'Inserisci una elemento alla lista',
+        placeholder: 'Inserisci un elemento alla lista',
 
         
     }

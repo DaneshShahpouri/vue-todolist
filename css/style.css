@@ -118,7 +118,7 @@ li:nth-child(even){
 .mod-el{
     position: absolute;
     background: transparent;
-    color: white;
+    color: rgb(235, 255, 120);
 
     width:70%;
 
