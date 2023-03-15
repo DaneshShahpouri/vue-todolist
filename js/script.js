@@ -81,7 +81,7 @@ createApp({
             this.todoList[elementIndex].modText = prevText
             //console.log(this.todoList[elementIndex].modText)
     
-            this.todoList[elementIndex].text = ' . '
+            this.todoList[elementIndex].text = "\xa0"
 
             this.todoList[elementIndex].modVar=true;
             
