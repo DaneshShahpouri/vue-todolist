@@ -10,13 +10,24 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    
+
     <title>ToDo List</title>
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app">{{ message }}</div>
+    <div id="app">
+        
+        <ul class="todo-List">
+
+            <li v-for="(element, index) in todoList" :style="[element.done ? {'textDecoration': 'line-through'} : {}]" @click="toggleDone(index)">
+                {{element.text}}
+            </li>
+
+        </ul>
+
+
+    </div>
 
     <script type="text/javascript" src="js/script.js"></script>
 </body>
