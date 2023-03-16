@@ -75,15 +75,23 @@ createApp({
         }
         
         if(this.todoList[elementIndex].modVar===true){
+
+            //this.closeModify(elementIndex);
+            console.log('Chiusura da bottone')
             
-            
-            //salva le modifiche in un array
-            this.todoList[elementIndex].modArr.push(this.todoList[elementIndex].modText);
-            
+
+            if(this.todoList[elementIndex].modText != this.todoList[elementIndex].modArr[this.todoList[elementIndex].modArr.length-1] ){
+
+                //salva le modifiche in un array
+                this.todoList[elementIndex].modArr.push(this.todoList[elementIndex].modText);
+                
+            }
             this.todoList[elementIndex].text = this.todoList[elementIndex].modText;
             this.todoList[elementIndex].modVar=false;
             
         }else{
+
+            console.log('apertura da bottone')
             let prevText = this.todoList[elementIndex].text;
             //console.log(prevText)
 
@@ -94,8 +102,23 @@ createApp({
             this.todoList[elementIndex].text = "\xa0"
 
             this.todoList[elementIndex].modVar=true;
+
+            this.focusInput(elementIndex);
             
         }        
+    },
+
+    closeModify(elementIndex){
+        console.log('Chiusura da evento')
+
+        if(this.todoList[elementIndex].modText != this.todoList[elementIndex].modArr[this.todoList[elementIndex].modArr.length-1] && this.todoList[elementIndex].modVar){
+
+            //salva le modifiche in un array
+            this.todoList[elementIndex].modArr.push(this.todoList[elementIndex].modText);
+            
+        }
+        this.todoList[elementIndex].text = this.todoList[elementIndex].modText;
+        this.todoList[elementIndex].modVar=false;
     },
 
     addNewElList(){
@@ -125,12 +148,19 @@ createApp({
     
     focusInput(elementIndex) {
 
-        setTimeout(
-            ()=>{
-                this.$refs.input[elementIndex].focus();
-                //console.log(this.$refs.input[elementIndex])
+        if(this.todoList[elementIndex].modVar === true){
+            //console.log("modvar è vera")
+            setTimeout(
+                ()=>{
+                    this.$refs.input[elementIndex].focus();
+                    //console.log(this.$refs.input[elementIndex])
+    
+                }, 100)}else{
+                    //console.log('modvar è falsa')
+                }
 
-            }, 100)},
+        },
+
 
 
     deleteLastModify(elementIndex){
