@@ -78,7 +78,7 @@ createApp({
 
             //this.closeModify(elementIndex);
             console.log('Chiusura da bottone')
-            
+            //console.log(EventTarget)
 
             if(this.todoList[elementIndex].modText != this.todoList[elementIndex].modArr[this.todoList[elementIndex].modArr.length-1] ){
 
@@ -117,10 +117,22 @@ createApp({
             this.todoList[elementIndex].modArr.push(this.todoList[elementIndex].modText);
             
         }
+        
         this.todoList[elementIndex].text = this.todoList[elementIndex].modText;
-        this.todoList[elementIndex].modVar=false;
+        
+        this.todoList[elementIndex].modVar=false
+ 
     },
 
+    timeOutFun(elementIndex){
+        
+        setTimeout(
+            ()=>{
+                this.closeModify(elementIndex)
+            },
+            250);
+    },
+    
     addNewElList(){
         let newLi = {
             text: this.newTodoElement.text,

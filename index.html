@@ -26,7 +26,7 @@
     
                 <li v-for="(element, index) in todoList">
                     <p :style="[element.done ? {'textDecoration': 'line-through'} : {}]" :class="element.done ? 'list-element-false' : 'list-element'" @click="toggleDone(index)">{{element.text}}</p> 
-                    <input type="text" class="mod-el" v-show="element.modVar" v-model="element.modText" ref="input" v-on:blur="closeModify(index)"  @keyup.enter="$event.target.blur()">
+                    <input type="text" class="mod-el" v-show="element.modVar" v-model="element.modText" ref="input" v-on:blur="timeOutFun(index)"  @keyup.enter="$event.target.blur()">
 
                     <div class="icon-wrapper">
 
@@ -38,13 +38,10 @@
                             <i class="fa-regular fa-circle-xmark delete-li" @click="deleteElement(index)"></i>
                         </div>
 
-                        <!-- BUG-NOTO: Alla modifica di un elemento di lista al riclick dell'icona della modifica si triggera anche il blur dell'input modifica. -->
+                       
                         <div class="wrapper">
                             <i class="fa-solid fa-pencil modify-icon" :style="[element.modVar ? {'color' : 'yellow'} : {}]" @click="modifyElement(index)"></i>
                         </div>
-
-
-                        
 
                     </div>
                 </li>
