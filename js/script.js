@@ -77,7 +77,7 @@ createApp({
         if(this.todoList[elementIndex].modVar===true){
 
             //this.closeModify(elementIndex);
-            console.log('Chiusura da bottone')
+            //console.log('Chiusura da bottone')
             //console.log(EventTarget)
 
             if(this.todoList[elementIndex].modText != this.todoList[elementIndex].modArr[this.todoList[elementIndex].modArr.length-1] ){
@@ -91,7 +91,7 @@ createApp({
             
         }else{
 
-            console.log('apertura da bottone')
+            //console.log('apertura da bottone')
             let prevText = this.todoList[elementIndex].text;
             //console.log(prevText)
 
